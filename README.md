@@ -8,3 +8,4 @@ TODO:
 - [ ] nvim
 - [ ] zsh
 - [ ] brew
+- [ ] git
