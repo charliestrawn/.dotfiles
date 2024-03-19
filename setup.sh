@@ -1,2 +1,3 @@
 stow nvim
-stow tmux
+stow --target ~/.config/tmux tmux
+stow --target ~/.config spaceship
