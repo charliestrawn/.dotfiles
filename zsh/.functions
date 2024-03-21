@@ -1,0 +1,43 @@
+# shellcheck shell=bash
+
+# docker grep
+function dg {
+    local container
+    container=$(docker container ls | grep "$1" | cut -d ' ' -f1)
+    if [ -z "$container" ]; then
+        echo "$1 is not running"
+    fi
+    echo "$container"
+}
+
+function dstop {
+    echo "stopping $1"
+    docker stop "$(dg "$1")"
+}
+
+function dr {
+    echo "restarting $1"
+    docker restart "$(dg "$1")"
+}
+
+function dl {
+    docker logs "$(dg "$1")"
+}
+
+function dlf {
+    docker logs "$(dg "$1")" -f
+}
+
+function fport {
+    lsof -nP -i4TCP:"$1" | grep LISTEN
+}
+
+function pr {
+  gh pr create -w
+}
+
+function puml2png {
+    java -DPLANTUML_LIMIT_SIZE=8400 -jar ~/.local/bin/plantuml.jar $1
+}
+
+
