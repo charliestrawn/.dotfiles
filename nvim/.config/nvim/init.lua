@@ -415,6 +415,7 @@ require("lazy").setup({
 			-- used for completion, annotations and signatures of Neovim apis
 			{ "folke/neodev.nvim", opts = {} },
 		},
+		dartls = {},
 		config = function()
 			-- Brief Aside: **What is LSP?**
 			--
@@ -552,7 +553,6 @@ require("lazy").setup({
 				-- But for many setups, the LSP (`tsserver`) will work just fine
 				-- tsserver = {},
 				--
-
 				lua_ls = {
 					-- cmd = {...},
 					-- filetypes { ...},
