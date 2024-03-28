@@ -41,11 +41,16 @@ source ~/.functions
 
 export ZSH="$HOME/.oh-my-zsh"
 plugins=(
-    git
-    gradle
-    macos
-    brew
     asdf
+    brew
+    git
+    golang
+    gradle
+    jira
+    macos
+    tig
+    tmux
+    zoxide
 )
 source $ZSH/oh-my-zsh.sh
 
