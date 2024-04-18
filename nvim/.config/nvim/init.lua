@@ -415,7 +415,6 @@ require("lazy").setup({
 			-- used for completion, annotations and signatures of Neovim apis
 			{ "folke/neodev.nvim", opts = {} },
 		},
-		dartls = {},
 		config = function()
 			-- Brief Aside: **What is LSP?**
 			--
@@ -567,6 +566,7 @@ require("lazy").setup({
 						},
 					},
 				},
+				csharp_ls = {},
 			}
 
 			-- Ensure the servers and tools above are installed
@@ -597,6 +597,8 @@ require("lazy").setup({
 					end,
 				},
 			})
+
+			require("lspconfig").dartls.setup({})
 		end,
 	},
 
@@ -610,6 +612,7 @@ require("lazy").setup({
 			},
 			formatters_by_ft = {
 				lua = { "stylua" },
+				dart = { "dart_format" },
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },
 				--

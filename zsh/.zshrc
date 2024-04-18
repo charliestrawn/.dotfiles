@@ -7,6 +7,7 @@ export GOPATH="$HOME/work"
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.pub-cache/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
+export PATH="$PATH:/Users/charliestrawn/.dotnet/tools"
 
 if [ -f "$(brew --prefix)/bin/virtualenv_wrapper.sh" ]; then
     export VIRTUALENVWRAPPER_SCRIPT="$(brew --prefix)/bin/virtualenvwrapper.sh"
