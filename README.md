@@ -48,6 +48,24 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 then start a new tmux session and run prefix + I (prefix will be bound to ctrl + a)
 
+### Programming Language Setup
+
+Using asdf which is installed via brew leaves.txt
+
+```bash
+asdf plugin add python 
+asdf plugin add dart 
+asdf plugin add golang  https://github.com/kennyp/asdf-golang.git
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf plugin add java 
+
+asdf install python 3.11.0
+asdf install dart 2.19.6
+asdf install golang 1.22.1
+asdf install nodejs 20.3.0
+asdf install java corretto-21.0.2.13.1
+```
+
 
  #### Inspired by:
 
