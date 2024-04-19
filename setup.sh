@@ -4,19 +4,11 @@ if ![ -d ~/.oh-my-zsh ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
+# goal of replacing these with stow /*
 stow zsh
-
 stow nvim
-
-mkdir -p ~/.config/tmux
-stow --target ~/.config/tmux tmux
-
-stow --target ~/.config spaceship
-
-mkdir -p ~/.config/alacritty
-stow --target ~/.config/alacritty alacritty
-curl -LO --output-dir ~/.config/alacritty https://github.com/catppuccin/alacritty/raw/main/catppuccin-mocha.toml
-
-mkdir -p ~/.conig/bat
-stow --target ~/.config/bat bat
+stow tmux
+stow spaceship
+stow alacritty
+stow bat
 
