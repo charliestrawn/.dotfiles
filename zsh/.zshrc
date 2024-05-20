@@ -44,6 +44,7 @@ export ZSH="$HOME/.oh-my-zsh"
 plugins=(
     asdf
     brew
+    encode64
     git
     golang
     gradle

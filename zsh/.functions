@@ -3,6 +3,10 @@
 # docker grep
 function dg {
     local container
+    if [ $# -lt 1 ]; then
+        echo "require at least one arg"
+        exit 1
+    fi
     container=$(docker container ls | grep "$1" | cut -d ' ' -f1)
     if [ -z "$container" ]; then
         echo "$1 is not running"
@@ -13,6 +17,14 @@ function dg {
 function dstop {
     echo "stopping $1"
     docker stop "$(dg "$1")"
+}
+
+function dstopall {
+    for c in $(dg | tail +2);
+    do
+        echo $c
+        #dstop(c)
+    done
 }
 
 function dr {
