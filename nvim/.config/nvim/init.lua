@@ -635,11 +635,13 @@ require("lazy").setup({
 				lua = { "stylua" },
 				dart = { "dart_format" },
 				-- Conform can also run multiple formatters sequentially
-				-- python = { "isort", "black" },
+				python = { "isort", "black" },
 				--
 				-- You can use a sub-list to tell conform to run *until* a formatter
 				-- is found.
-				-- javascript = { { "prettierd", "prettier" } },
+				javascript = { { "prettierd", "prettier" } },
+				go = { "gofmt" },
+				yaml = { "yamlfmt" },
 			},
 		},
 	},

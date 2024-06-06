@@ -38,7 +38,6 @@ ulimit -n 1000
 source ~/.aliases
 source ~/.functions
 [ -f ~/.secrets ] && source ~/.secrets
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export ZSH="$HOME/.oh-my-zsh"
 plugins=(
@@ -57,6 +56,8 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 
 source "$(brew --prefix)/opt/spaceship/spaceship.zsh"
+
+eval "$(fzf --zsh)"
 
 # supposedly needs to be last
 eval "$(zoxide init zsh)"
