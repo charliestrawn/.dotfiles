@@ -33,7 +33,8 @@ export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
 
 
 # workaround some issues building huge dart repos
-ulimit -n 1000
+ulimit -Sn 8192
+
 
 source ~/.aliases
 source ~/.functions
