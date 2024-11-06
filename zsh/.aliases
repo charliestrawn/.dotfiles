@@ -23,6 +23,7 @@ alias grabc="./gradlew clean build --parallel"
 alias gpom="g pull origin master"
 alias gpum="g pull upstream master"
 alias grom="g rebase origin/master"
+alias grpo="g remote prune origin"
 alias yolo="gp --force-with-lease"
 alias hmb="gca --amend --no-edit && yolo"
 
@@ -30,14 +31,14 @@ alias hmb="gca --amend --no-edit && yolo"
 # Skynet helpers
 ################################################
 
-alias sup=skynet/skynet-env-setup.sh
-alias sdown=skynet/skynet-env-teardown.sh
-alias stest=skynet/skynet-test.sh
-alias spull='skynet/skynet-compose.sh pull'
-alias ssv='skynet/skynet-compose.sh up -d support-viewer && open http://localhost:8180/?mockAuth=true'
+alias sup='./skynet/skynet-env-setup.sh'
+alias sdown='./skynet/skynet-env-teardown.sh'
+alias stest='./skynet/skynet-test.sh'
+alias spull='./skynet/skynet-compose.sh pull'
+alias ssv='./skynet/skynet-compose.sh up -d support-viewer && open -a "Google Chrome" http://localhost:8180/?mockAuth=true'
 alias sall='gcb && sdown && sup && stest && sdown'
-alias ssql='skynet/skynet-compose.sh exec mysql mysql -uroot -psecret --binary-as-hex'
-alias sc='skynet/skynet-compose.sh up -d '
+alias ssql='./skynet/skynet-compose.sh exec mysql mysql -uroot -psecret --binary-as-hex'
+alias scup='./skynet/skynet-compose.sh up -d '
 
 
 #################################################
