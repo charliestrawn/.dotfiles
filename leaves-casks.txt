@@ -1,0 +1,15 @@
+aerospace
+alfred
+bruno
+caffeine
+discord
+docker
+font-fira-code
+ghostty
+jd-gui
+jetbrains-toolbox
+obsidian
+parallels
+rectangle
+viscosity
+visual-studio-code
