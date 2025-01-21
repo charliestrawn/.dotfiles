@@ -60,6 +60,10 @@ source "$(brew --prefix)/opt/spaceship/spaceship.zsh"
 
 eval "$(fzf --zsh)"
 
+# fzf git stuff
+# https://github.com/junegunn/fzf-git.sh
+source ./fzf-git.sh
+
 # supposedly needs to be last
 eval "$(zoxide init zsh)"
 
