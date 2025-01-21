@@ -48,6 +48,11 @@ function pr {
   gh pr create -w
 }
 
+# opens browser to the PR made from this branch
+function prv {
+  gh pr view -w
+}
+
 function puml2png {
     java -DPLANTUML_LIMIT_SIZE=8400 -jar ~/.local/bin/plantuml.jar $1
 }
