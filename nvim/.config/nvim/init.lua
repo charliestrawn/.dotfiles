@@ -435,7 +435,7 @@ require("lazy").setup({
 						},
 					},
 				},
-				csharp_ls = {},
+				-- csharp_ls = {},
 			}
 
 			-- Ensure the servers and tools above are installed
