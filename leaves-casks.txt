@@ -1,5 +1,3 @@
-aerospace
-alfred
 bruno
 caffeine
 discord
@@ -9,7 +7,6 @@ ghostty
 jd-gui
 jetbrains-toolbox
 obsidian
-parallels
+raycast
 rectangle
 viscosity
-visual-studio-code
