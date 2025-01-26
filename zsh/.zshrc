@@ -1,3 +1,5 @@
+# eval brew cli
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # requires neovim which is aliased to v -> vim in ~/.aliases
 export EDITOR=nvim
@@ -7,34 +9,43 @@ export GOPATH="$HOME/work"
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.pub-cache/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
-export PATH="$PATH:/Users/charliestrawn/.dotnet/tools"
 
 if [ -f "$(brew --prefix)/bin/virtualenv_wrapper.sh" ]; then
     export VIRTUALENVWRAPPER_SCRIPT="$(brew --prefix)/bin/virtualenvwrapper.sh"
     source "$(brew --prefix)/bin/virtualenvwrapper_lazy.sh"
 fi
 
-source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+if [ -f "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ]; then
+    source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
 
+if [ -f "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
+    source "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+fi
+
+# if we have the .wk folder, but no profile, then login hasn't been run yet
+# lazily run it, then source the profile
+# if we have wk folder, should be able to source the profile
 if [ -d ~/.wk ]; then
+    # if we don't have the profile, run login to fetch it
+    if [ ! -f ~/.wk/profile ]; then
+        wk login
+    fi
     source ~/.wk/profile
     export PATH="$HOME/.wk/bin:$PATH"
 fi
 
-export CPL_GIT_REPOS_DIR="$HOME/bench"
+export WK_LOCAL_GIT_REPOS_DIR="$HOME/bench"
 
 . "$(brew --prefix)/opt/asdf/libexec/asdf.sh"
 . ~/.asdf/plugins/java/set-java-home.zsh
 
 export GPG_TTY=$(tty)
-export LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
-
+export LDFLAGS="-L/$(brew --prefix)/opt/openssl@3/lib"
+export CPPFLAGS="-I/$(brew --prefix)/opt/openssl@3/include"
 
 # workaround some issues building huge dart repos
 ulimit -Sn 8192
-
 
 source ~/.aliases
 source ~/.functions
@@ -62,7 +73,7 @@ eval "$(fzf --zsh)"
 
 # fzf git stuff
 # https://github.com/junegunn/fzf-git.sh
-source ./fzf-git.sh
+source ~/fzf-git.sh
 
 # supposedly needs to be last
 eval "$(zoxide init zsh)"
