@@ -67,10 +67,14 @@ asdf install java corretto-21.0.2.13.1
 ```
 
 
+#### Bat syntax
+
+The `bat` theme requires you to run `bat cache --build` 
+
+see: https://github.com/catppuccin/bat?tab=readme-ov-file#usage
+
  #### Inspired by:
 
 - https://www.jakewiesler.com/blog/managing-dotfiles#understanding-stow 
 - https://github.com/omerxx/dotfiles
 - https://github.com/tylertreat/dotfiles
-
-
