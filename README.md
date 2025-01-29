@@ -24,7 +24,7 @@ Install Homebrew
 brew leaves > leaves.txt
 
 # Fresh installation
-xargs brew install leaves.txt
+xargs brew install < leaves.txt
 ```
 
 ### Install oh-my-zsh
@@ -37,7 +37,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 ### Symlink dotfiles with stow
 
 ```bash
-stow /*
+stow */
 ```
 
 ### Install TPM for tmux
