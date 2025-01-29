@@ -46,6 +46,14 @@ stow /*
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ```
 
+#### Manually Install Catppuccin
+
+```sh
+mkdir -p ~/.config/tmux/plugins/catppuccin
+git clone -b v2.1.2 https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
+```
+
+
 then start a new tmux session and run prefix + I (prefix will be bound to ctrl + a)
 
 ### Programming Language Setup
