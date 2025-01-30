@@ -1,6 +1,6 @@
 background-blur-radius = 20
-background-opacity = 0.95
-font-family = FiraCode Nerd Font
+background-opacity = 0.90
+font-family = Fira Code
 font-size = 13
 font-style = Retina
 font-thicken = true
