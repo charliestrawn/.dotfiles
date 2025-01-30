@@ -592,6 +592,10 @@ require("lazy").setup({
 		priority = 1000,
 		config = function()
 			-- setup must be called before loading
+			require("catppuccin").setup({
+				flavour = "mocha",
+				transparent_background = true,
+			})
 			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
