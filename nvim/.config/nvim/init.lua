@@ -470,7 +470,44 @@ require("lazy").setup({
 			require("lspconfig").dartls.setup({})
 		end,
 	},
+	{
+		"nvim-neotest/neotest",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"antoinemadec/FixCursorHold.nvim",
+			"haydenmeade/neotest-jest",
+			"zidhuss/neotest-minitest",
+			"mfussenegger/nvim-dap",
+			"nvim-neotest/neotest-go",
+		},
+		opts = {},
+		config = function()
+			local neotest = require("neotest")
 
+			local neotest_jest = require("neotest-jest")({
+				jestCommand = "npm test --",
+			})
+			neotest_jest.filter_dir = function(name)
+				return name ~= "node_modules" and name ~= "__snapshots__"
+			end
+
+			neotest.setup({
+				adapters = {
+					neotest_jest,
+					require("neotest-minitest"),
+					require("neotest-go"),
+				},
+				output_panel = {
+					enabled = true,
+					open = "botright split | resize 15",
+				},
+				quickfix = {
+					open = false,
+				},
+			})
+		end,
+	},
 	{ -- Autoformat
 		"stevearc/conform.nvim",
 		opts = {
@@ -522,7 +559,7 @@ require("lazy").setup({
 			--    you can use this plugin to help you. It even has snippets
 			--    for various frameworks/libraries/etc. but you will have to
 			--    set up the ones that are useful for you.
-			-- 'rafamadriz/friendly-snippets',
+			"rafamadriz/friendly-snippets",
 		},
 		config = function()
 			-- See `:help cmp`
@@ -613,7 +650,7 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		opts = {
-			ensure_installed = { "bash", "c", "html", "lua", "markdown", "vim", "vimdoc" },
+			ensure_installed = { "bash", "c", "go", "html", "lua", "markdown", "vim", "vimdoc" },
 			-- Autoinstall languages that are not installed
 			auto_install = true,
 			highlight = { enable = true },
@@ -643,8 +680,8 @@ require("lazy").setup({
 	--  Here are some example plugins that I've included in the kickstart repository.
 	--  Uncomment any of the lines below to enable them (you will need to restart nvim).
 	--
-	-- require 'kickstart.plugins.debug',
-	-- require 'kickstart.plugins.indent_line',
+	require("kickstart.plugins.debug"),
+	require("kickstart.plugins.indent_line"),
 
 	-- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
 	--    This is the easiest way to modularize your config.
