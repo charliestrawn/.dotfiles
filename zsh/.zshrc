@@ -37,9 +37,6 @@ fi
 
 export WK_LOCAL_GIT_REPOS_DIR="$HOME/bench"
 
-. "$(brew --prefix)/opt/asdf/libexec/asdf.sh"
-. ~/.asdf/plugins/java/set-java-home.zsh
-
 export GPG_TTY=$(tty)
 export LDFLAGS="-L/$(brew --prefix)/opt/openssl@3/lib"
 export CPPFLAGS="-I/$(brew --prefix)/opt/openssl@3/include"
@@ -74,6 +71,12 @@ eval "$(fzf --zsh)"
 # fzf git stuff
 # https://github.com/junegunn/fzf-git.sh
 source ~/fzf-git.sh
+
+# setup asdf for versions >= 0.16.0 
+export ASDF_DATA_DIR="$HOME/.asdf"
+export PATH="$ASDF_DATA_DIR/shims:$PATH"
+# still exists in the plugin repo for now
+. ~/.asdf/plugins/java/set-java-home.zsh
 
 # supposedly needs to be last
 eval "$(zoxide init zsh)"

@@ -63,15 +63,21 @@ Using asdf which is installed via brew leaves.txt
 ```bash
 asdf plugin add python 
 asdf plugin add dart 
-asdf plugin add golang  https://github.com/kennyp/asdf-golang.git
-asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf plugin add golang
+asdf plugin add nodejs
 asdf plugin add java 
 
-asdf install python 3.11.0
+asdf install python 3.12.0
 asdf install dart 2.19.6
-asdf install golang 1.22.1
+asdf install golang 1.23.1
 asdf install nodejs 20.3.0
 asdf install java corretto-21.0.2.13.1
+
+asdf set python 3.12.0
+asdf set dart 2.19.6
+asdf set golang 1.23.1
+asdf set nodejs 20.3.0
+asdf set java corretto-21.0.2.13.1
 ```
 
 
