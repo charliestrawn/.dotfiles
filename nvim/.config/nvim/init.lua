@@ -400,6 +400,38 @@ require("lazy").setup({
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
+			-- setup dart lsp first since it was removed from mason-lspconfig
+			require("lspconfig").dartls.setup({
+				--root_dir = util.root_pattern("pubspec.yaml"),
+				capabilities = capabilities,
+				cmd = { "dart", "language-server", "--protocol=lsp" },
+				filetypes = {
+					"dart",
+				},
+				init_options = {
+					onlyAnalyzeProjectsWithOpenFiles = true,
+					suggestFromUnimportedLibraries = true,
+					closingLabels = true,
+					outline = true,
+					flutterOutline = false,
+				},
+				settings = {
+					dart = {
+						analysisExcludedFolders = {
+							vim.fn.expand("$HOME/AppData/Local/Pub/Cache"),
+							vim.fn.expand("$HOME/.pub-cache"),
+							vim.fn.expand("/opt/homebrew/"),
+							vim.fn.expand("$HOME/tools/flutter/"),
+						},
+						updateImportsOnRename = true,
+						completeFunctionCalls = true,
+						showTodos = true,
+						enableSdkFormatter = false, -- prefer ddev format
+						enableSnippets = true,
+					},
+				},
+			})
+
 			-- Enable the following language servers
 			--  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
 			--
@@ -466,8 +498,6 @@ require("lazy").setup({
 					end,
 				},
 			})
-
-			require("lspconfig").dartls.setup({})
 		end,
 	},
 	{
