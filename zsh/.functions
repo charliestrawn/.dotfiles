@@ -29,7 +29,7 @@ function dstopall {
 
 function dr {
     echo "restarting $1"
-    docker restart "$(dg "$1")"
+    dg "$1" | xargs docker restart
 }
 
 function dl {
