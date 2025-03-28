@@ -27,6 +27,7 @@ alias grom="g rebase origin/master"
 alias grpo="g remote prune origin"
 alias yolo="gp --force-with-lease"
 alias hmb="gca --amend --no-edit && yolo"
+alias next-flyway="find ./server/src/main/resources/db/migration -type f | wc -l "
 
 ################################################
 # Skynet helpers
