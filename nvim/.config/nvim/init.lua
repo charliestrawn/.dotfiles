@@ -452,7 +452,7 @@ require("lazy").setup({
 				--    https://github.com/pmizio/typescript-tools.nvim
 				--
 				-- But for many setups, the LSP (`tsserver`) will work just fine
-				-- tsserver = {},
+				ts_ls = {},
 				lua_ls = {
 					-- cmd = {...},
 					-- filetypes { ...},
@@ -510,6 +510,7 @@ require("lazy").setup({
 			"zidhuss/neotest-minitest",
 			"mfussenegger/nvim-dap",
 			"nvim-neotest/neotest-go",
+			"marilari88/neotest-vitest",
 		},
 		opts = {},
 		config = function()
@@ -527,6 +528,7 @@ require("lazy").setup({
 					neotest_jest,
 					require("neotest-minitest"),
 					require("neotest-go"),
+					require("neotest-vitest"),
 				},
 				output_panel = {
 					enabled = true,
@@ -666,7 +668,21 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		opts = {
-			ensure_installed = { "bash", "c", "go", "html", "lua", "markdown", "vim", "vimdoc" },
+			ensure_installed = {
+				"bash",
+				"c",
+				"diff",
+				"go",
+				"html",
+				"lua",
+				"markdown",
+				"markdown_inline",
+				"query",
+				"tsx",
+				"typescript",
+				"vim",
+				"vimdoc",
+			},
 			-- Autoinstall languages that are not installed
 			auto_install = true,
 			highlight = { enable = true },

@@ -1,9 +1,9 @@
 background-blur-radius = 20
-background-opacity = 0.90
+background-opacity = 0.95
 font-size = 13
 font-style = Retina
 font-thicken = true
-theme = tokyonight
+theme = dark:tokyonight,light:tokyonight-day
 window-decoration = false
 window-padding-x = 10
 window-padding-y = 5
