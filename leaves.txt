@@ -21,10 +21,8 @@ pv
 reattach-to-user-namespace
 ripgrep
 shellcheck
-sourcegraph/src-cli/src-cli
 spaceship
 stow
-tig
 tmux
 vault
 virtualenv
@@ -33,5 +31,4 @@ wget
 yazi
 zoxide
 zsh-autosuggestions
-zsh-completions
 zsh-syntax-highlighting
