@@ -25,6 +25,17 @@ return {
 	config = function(_, opts)
 		-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 
+		local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+		parser_config.frugal = {
+			install_info = {
+				url = "https://github.com/charliestrawn/tree-sitter-frugal",
+				files = { "src/parser.c" },
+				generate_requires_npm = false,
+				requires_generate_from_grammar = false,
+			},
+			filetype = "frugal",
+		}
+
 		---@diagnostic disable-next-line: missing-fields
 		require("nvim-treesitter.configs").setup(opts)
 
