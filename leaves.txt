@@ -2,7 +2,7 @@ asdf
 aws-iam-authenticator
 bat
 eza
-fd
+felixkratz/formulae/borders
 fzf
 gh
 git
@@ -25,6 +25,7 @@ spaceship
 stow
 tmux
 vault
+tree
 virtualenv
 virtualenvwrapper
 wget
