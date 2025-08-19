@@ -111,12 +111,6 @@ alt-shift-semicolon = 'mode service'
 # Floating toggle for special windows
 alt-shift-f = 'layout floating tiling'
 
-# Service mode for system operations and advanced window management
-[mode.service.binding]
-esc = ['reload-config', 'mode main']
-r = ['flatten-workspace-tree', 'mode main']                 # Reset layout
-f = ['layout floating tiling', 'mode main']                 # Toggle floating
-backspace = ['close-all-windows-but-current', 'mode main']  # Close all but current
 
 # Advanced window joining (like Hyprland's window grouping)
 alt-shift-h = ['join-with left', 'mode main']
@@ -149,18 +143,9 @@ run = 'move-node-to-workspace 1'
 if.app-id = 'com.tinyspeck.slackmacgap'
 run = 'move-node-to-workspace 2'
 
-[[on-window-detected]]
-if.app-id = 'com.spotify.client'
-run = 'move-node-to-workspace M'
-
-[[on-window-detected]]
-if.app-id = 'com.apple.systempreferences'
-run = 'move-node-to-workspace S'
-
 # Float certain dialogs and utility windows by default
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
-if.window-title-regex-substring = 'info|copy|move'
 run = 'layout floating'
 
 [[on-window-detected]]
@@ -173,3 +158,11 @@ W = 'main'        # Web workspace on main monitor
 D = 'secondary'   # Development on secondary monitor if available
 M = 'main'        # Media on main monitor
 S = 'main'        # System on main monitor
+
+# Service mode for system operations and advanced window management
+[mode.service.binding]
+esc = ['reload-config', 'mode main']
+r = ['flatten-workspace-tree', 'mode main']                 # Reset layout
+f = ['layout floating tiling', 'mode main']                 # Toggle floating
+backspace = ['close-all-windows-but-current', 'mode main']  # Close all but current
+
