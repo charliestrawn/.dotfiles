@@ -115,6 +115,10 @@ after-startup-command = [
   if.app-id = 'com.1password.1password-macos'
   run = 'layout floating'
 
+[[on-window-detected]]
+  if.app-id = 'com.apple.MobileSMS'
+  run = 'layout floating'
+
 # Monitor assignments for multi-monitor setups (if applicable)
 [workspace-to-monitor-force-assignment]
   W = 'main'        # Web workspace on main monitor
