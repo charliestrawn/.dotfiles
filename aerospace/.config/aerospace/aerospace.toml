@@ -1,148 +1,125 @@
-# AeroSpace Configuration - Omarchy-inspired
-# Based on Omarchy's SUPER key workflow and tiling patterns
-# Place this file at ~/.aerospace.toml
-
-# Enable AeroSpace at login (equivalent to Hyprland auto-start)
 start-at-login = true
 
 after-startup-command = [
   'exec-and-forget borders'
 ]
 
-# Default layout settings - mimic Omarchy's tiling behavior
-default-root-container-layout = 'tiles'
-default-root-container-orientation = 'auto'
-accordion-padding = 20
-
-# Normalization settings for clean tree structure
-enable-normalization-flatten-containers = true
-enable-normalization-opposite-orientation-for-nested-containers = true
-
-# Mouse follows focus like in Omarchy
-on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
-
 # Gaps configuration - minimal like Omarchy's clean aesthetic
 [gaps]
-inner.horizontal = 8
-inner.vertical = 8
-outer.left = 8
-outer.bottom = 8
-outer.top = 8
-outer.right = 8
+  inner.horizontal = 8
+  inner.vertical = 8
+  outer.left = 8
+  outer.bottom = 8
+  outer.top = 8
+  outer.right = 8
 
 [key-mapping]
-preset = 'qwerty'
+  preset = 'qwerty'
 
 # Main binding mode - using alt as primary modifier to avoid macOS conflicts
 # (alt is less used by macOS system shortcuts compared to cmd)
 [mode.main.binding]
 
-# Application launching - core Omarchy workflow
-alt-g = '''exec-and-forget open -a "Ghostty"'''
-alt-b = '''exec-and-forget open -a "Brave"'''
-alt-c = '''exec-and-forget open -a "Google Chrome"'''
-alt-f = '''exec-and-forget open -a "Finder"'''
-alt-i = '''exec-and-forget open -a "Messages"'''
-alt-s = '''exec-and-forget open -a "Slack"'''
+  alt-g = '''exec-and-forget open -a "Ghostty"'''
+  alt-b = '''exec-and-forget open -a "Brave"'''
+  alt-c = '''exec-and-forget open -a "Google Chrome"'''
+  alt-f = '''exec-and-forget open -a "Finder"'''
+  alt-i = '''exec-and-forget open -a "Messages"'''
+  alt-s = '''exec-and-forget open -a "Slack"'''
 
-# Window resizing - clean and simple
-alt-minus = 'resize smart -50'
-alt-equal = 'resize smart +50'
-alt-shift-minus = 'resize smart -100'
-alt-shift-equal = 'resize smart +100'
+  alt-minus = 'resize smart -50'
+  alt-equal = 'resize smart +50'
+  alt-shift-minus = 'resize smart -100'
+  alt-shift-equal = 'resize smart +100'
 
-# Workspace switching - numbers like Omarchy workspaces
-alt-1 = 'workspace 1'
-alt-2 = 'workspace 2'
-alt-3 = 'workspace 3'
-alt-4 = 'workspace 4'
-alt-5 = 'workspace 5'
-alt-6 = 'workspace 6'
-alt-7 = 'workspace 7'
-alt-8 = 'workspace 8'
-alt-9 = 'workspace 9'
+  alt-1 = 'workspace 1'
+  alt-2 = 'workspace 2'
+  alt-3 = 'workspace 3'
+  alt-4 = 'workspace 4'
+  alt-5 = 'workspace 5'
+  alt-6 = 'workspace 6'
+  alt-7 = 'workspace 7'
+  alt-8 = 'workspace 8'
+  alt-9 = 'workspace 9'
 
-# Letters for specialized workspaces (following AeroSpace convention but Omarchy-inspired)
-alt-w = 'workspace W'  # Web/Browser workspace
-alt-d = 'workspace D'  # Development/IDE workspace  
-alt-m = 'workspace M'
+  alt-w = 'workspace W'  # Web/Browser workspace
+  alt-d = 'workspace D'  # Development/IDE workspace  
+  alt-m = 'workspace M'  # Misc workspace
+  alt-t = 'workspace T'  # Terminal
 
-# Move windows to workspaces - shift + workspace key
-alt-shift-1 = 'move-node-to-workspace 1'
-alt-shift-2 = 'move-node-to-workspace 2'
-alt-shift-3 = 'move-node-to-workspace 3'
-alt-shift-4 = 'move-node-to-workspace 4'
-alt-shift-5 = 'move-node-to-workspace 5'
-alt-shift-6 = 'move-node-to-workspace 6'
-alt-shift-7 = 'move-node-to-workspace 7'
-alt-shift-8 = 'move-node-to-workspace 8'
-alt-shift-9 = 'move-node-to-workspace 9'
+  alt-shift-1 = 'move-node-to-workspace 1'
+  alt-shift-2 = 'move-node-to-workspace 2'
+  alt-shift-3 = 'move-node-to-workspace 3'
+  alt-shift-4 = 'move-node-to-workspace 4'
+  alt-shift-5 = 'move-node-to-workspace 5'
+  alt-shift-6 = 'move-node-to-workspace 6'
+  alt-shift-7 = 'move-node-to-workspace 7'
+  alt-shift-8 = 'move-node-to-workspace 8'
+  alt-shift-9 = 'move-node-to-workspace 9'
 
-alt-shift-w = 'move-node-to-workspace W'
-alt-shift-d = 'move-node-to-workspace D'
-alt-shift-m = 'move-node-to-workspace M'
+  alt-shift-w = 'move-node-to-workspace W'
+  alt-shift-d = 'move-node-to-workspace D'
+  alt-shift-m = 'move-node-to-workspace M'
+  alt-shift-t = 'move-node-to-workspace T'
 
-# Window management - only add shortcuts that don't conflict with macOS standards
-alt-shift-q = 'close-all-windows-but-current'              # Close all but current (no macOS equivalent)
-
-# Service mode for advanced operations
-alt-shift-semicolon = 'mode service'
-
-# Floating toggle for special windows
-alt-shift-f = 'layout floating tiling'
-
-
-# Advanced window joining (like Hyprland's window grouping)
-alt-shift-h = ['join-with left', 'mode main']
-alt-shift-j = ['join-with down', 'mode main'] 
-alt-shift-k = ['join-with up', 'mode main']
-alt-shift-l = ['join-with right', 'mode main']
+  alt-shift-semicolon = 'mode service'
+  alt-shift-f = 'layout floating tiling'
 
 # Application-specific workspace assignments (Omarchy-style organization)
 [[on-window-detected]]
-if.app-id = 'com.google.Chrome'
-run = 'move-node-to-workspace W'
+  if.app-id = 'com.google.Chrome'
+  run = 'move-node-to-workspace W'
 
 [[on-window-detected]]
-if.app-id = 'com.brave.Browser'
-run = 'move-node-to-workspace W'
+  if.app-id = 'com.brave.Browser'
+  run = 'move-node-to-workspace W'
 
 [[on-window-detected]]
-if.app-id = 'com.jetbrains.intellij'
-run = 'move-node-to-workspace D'
+  if.app-id = 'com.jetbrains.intellij'
+  run = 'move-node-to-workspace D'
 
 [[on-window-detected]]
-if.app-id = 'com.microsoft.VSCode'
-run = 'move-node-to-workspace D'
+  if.app-id = 'com.microsoft.VSCode'
+  run = 'move-node-to-workspace D'
 
 [[on-window-detected]]
-if.app-id = 'com.mitchellh.ghostty'
-run = 'move-node-to-workspace 1'
+  if.app-id = 'com.mitchellh.ghostty'
+  run = 'move-node-to-workspace T'
 
 [[on-window-detected]]
-if.app-id = 'com.tinyspeck.slackmacgap'
-run = 'move-node-to-workspace 2'
+  if.app-id = 'com.tinyspeck.slackmacgap'
+  run = 'move-node-to-workspace M'
 
 # Float certain dialogs and utility windows by default
 [[on-window-detected]]
-if.app-id = 'com.apple.finder'
-run = 'layout floating'
+  if.app-id = 'com.apple.finder'
+  run = 'layout floating'
 
 [[on-window-detected]]
-if.app-id = 'com.1password.1password-macos'
-run = 'layout floating'
+  if.app-id = 'com.1password.1password-macos'
+  run = 'layout floating'
 
 # Monitor assignments for multi-monitor setups (if applicable)
 [workspace-to-monitor-force-assignment]
-W = 'main'        # Web workspace on main monitor
-D = 'secondary'   # Development on secondary monitor if available
-M = 'main'        # Media on main monitor
-S = 'main'        # System on main monitor
+  W = 'main'        # Web workspace on main monitor
+  D = 'secondary'   # Development on secondary monitor if available
+  M = 'main'        # Media on main monitor
+  T = 'main'        # System on main monitor
 
 # Service mode for system operations and advanced window management
 [mode.service.binding]
-esc = ['reload-config', 'mode main']
-r = ['flatten-workspace-tree', 'mode main']                 # Reset layout
-f = ['layout floating tiling', 'mode main']                 # Toggle floating
-backspace = ['close-all-windows-but-current', 'mode main']  # Close all but current
+  esc = ['reload-config', 'mode main']
+  r = ['flatten-workspace-tree', 'mode main']                 # Reset layout
+  f = ['layout floating tiling', 'mode main']                 # Toggle floating
+  backspace = ['close-all-windows-but-current', 'mode main']  # Close all but current
+
+# Advanced window joining (like Hyprland's window grouping)
+  alt-shift-h = ['join-with left', 'mode main']
+  alt-shift-j = ['join-with down', 'mode main'] 
+  alt-shift-k = ['join-with up', 'mode main']
+  alt-shift-l = ['join-with right', 'mode main']
+
+  down = 'volume down'
+  up = 'volume up'
+  shift-down = ['volume set 0', 'mode main']
 
