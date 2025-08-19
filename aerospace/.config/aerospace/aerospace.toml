@@ -38,30 +38,12 @@ preset = 'qwerty'
 [mode.main.binding]
 
 # Application launching - core Omarchy workflow
-alt-enter = '''exec-and-forget open -n -a "Ghostty"'''     # Terminal (Super + Return in Omarchy)
-alt-b = '''exec-and-forget open -a "Google Chrome"'''       # Browser (Super + B in Omarchy)
-alt-e = '''exec-and-forget open -a "Slack"'''              # Slack for communication
-alt-f = '''exec-and-forget open -a "Finder"'''             # File manager
-alt-c = '''exec-and-forget open -a "Calendar"'''           # Calendar
-
-# App launcher - equivalent to Omarchy's Walker (Super + Space)
-alt-space = '''exec-and-forget open -a "Raycast"'''        # App launcher
-
-# Tiling controls - inspired by Omarchy's SUPER + J toggling
-alt-slash = 'layout tiles horizontal vertical'              # Toggle layout like Omarchy (using slash like AeroSpace default)
-alt-comma = 'layout accordion horizontal vertical'          # Accordion layout
-alt-t = 'layout tiles horizontal vertical'                  # Explicit tiles layout
-
-# Window focus - vim-style navigation like Omarchy
-alt-h = 'focus left'
-alt-j = 'focus down' 
-alt-k = 'focus up'
-alt-l = 'focus right'
-
-# Window movement - with shift modifier like Omarchy patterns
-alt-shift-h = 'move left'
-alt-shift-k = 'move up'
-alt-shift-l = 'move right'
+alt-g = '''exec-and-forget open -a "Ghostty"'''
+alt-b = '''exec-and-forget open -a "Brave"'''
+alt-c = '''exec-and-forget open -a "Google Chrome"'''
+alt-f = '''exec-and-forget open -a "Finder"'''
+alt-i = '''exec-and-forget open -a "Messages"'''
+alt-s = '''exec-and-forget open -a "Slack"'''
 
 # Window resizing - clean and simple
 alt-minus = 'resize smart -50'
@@ -83,8 +65,7 @@ alt-9 = 'workspace 9'
 # Letters for specialized workspaces (following AeroSpace convention but Omarchy-inspired)
 alt-w = 'workspace W'  # Web/Browser workspace
 alt-d = 'workspace D'  # Development/IDE workspace  
-alt-m = 'workspace M'  # Media workspace
-alt-s = 'workspace S'  # System/Settings workspace
+alt-m = 'workspace M'
 
 # Move windows to workspaces - shift + workspace key
 alt-shift-1 = 'move-node-to-workspace 1'
@@ -100,11 +81,6 @@ alt-shift-9 = 'move-node-to-workspace 9'
 alt-shift-w = 'move-node-to-workspace W'
 alt-shift-d = 'move-node-to-workspace D'
 alt-shift-m = 'move-node-to-workspace M'
-alt-shift-s = 'move-node-to-workspace S'
-
-# Workspace navigation
-alt-tab = 'workspace-back-and-forth'                        # Quick workspace switching
-alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 # Window management - only add shortcuts that don't conflict with macOS standards
 alt-shift-q = 'close-all-windows-but-current'              # Close all but current (no macOS equivalent)
