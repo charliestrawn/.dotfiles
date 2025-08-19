@@ -498,6 +498,28 @@ require("lazy").setup({
 					end,
 				},
 			})
+
+			-- Add frugal-ls as a custom server configuration
+			local lspconfig = require("lspconfig")
+			local configs = require("lspconfig.configs")
+			
+			if not configs.frugal_ls then
+				configs.frugal_ls = {
+					default_config = {
+						cmd = { "frugal-ls" },
+						filetypes = { "frugal" },
+						root_dir = lspconfig.util.root_pattern(".git", "frugal.toml") or lspconfig.util.path.dirname,
+						single_file_support = true,
+					},
+					docs = {
+						description = "Frugal language server",
+					},
+				}
+			end
+
+			lspconfig.frugal_ls.setup({
+				capabilities = capabilities,
+			})
 		end,
 	},
 	{
