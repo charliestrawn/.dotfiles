@@ -4,6 +4,6 @@ font-size = 14
 font-style = Retina
 font-thicken = true
 theme = dark:tokyonight,light:tokyonight-day
-window-decoration = false
+macos-titlebar-style = hidden
 window-padding-x = 10
 window-padding-y = 5
