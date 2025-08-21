@@ -40,6 +40,14 @@ function dlf {
     docker logs "$(dg "$1")" -f
 }
 
+function dprune {
+    echo "cleaning up docker resources"
+    docker system prune -f
+    docker image prune -f
+    docker volume prune -f
+    docker network prune -f
+}
+
 function fport {
     lsof -nP -i4TCP:"$1" | grep LISTEN
 }
