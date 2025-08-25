@@ -2,7 +2,9 @@ asdf
 aws-iam-authenticator
 bat
 eza
+fd
 felixkratz/formulae/borders
+freerdp
 fzf
 gh
 git
@@ -11,6 +13,8 @@ graphviz
 grype
 helm
 jq
+k9s
+lazydocker
 lazygit
 maven
 ncdu
