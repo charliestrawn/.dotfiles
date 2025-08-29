@@ -21,8 +21,8 @@ after-startup-command = [
 [mode.main.binding]
 
   alt-g = '''exec-and-forget open -a "Ghostty"'''
-  alt-b = '''exec-and-forget open -a "Brave"'''
-  alt-c = '''exec-and-forget open -a "Google Chrome"'''
+  alt-v = '''exec-and-forget open -a "Brave"'''
+  alt-b = '''exec-and-forget open -a "Google Chrome"'''
   alt-f = '''exec-and-forget open -a "Finder"'''
   alt-i = '''exec-and-forget open -a "Messages"'''
   alt-s = '''exec-and-forget open -a "Slack"'''
@@ -49,37 +49,30 @@ after-startup-command = [
   alt-2 = 'workspace 2'
   alt-3 = 'workspace 3'
   alt-4 = 'workspace 4'
-  alt-5 = 'workspace 5'
-  alt-6 = 'workspace 6'
-  alt-7 = 'workspace 7'
-  alt-8 = 'workspace 8'
-  alt-9 = 'workspace 9'
 
   alt-w = 'workspace W'  # Web/Browser workspace
   alt-d = 'workspace D'  # Development/IDE workspace  
   alt-m = 'workspace M'  # Misc workspace
+  alt-c = 'workspace C'  # Chat workspace
   alt-t = 'workspace T'  # Terminal
 
   alt-shift-1 = 'move-node-to-workspace 1'
   alt-shift-2 = 'move-node-to-workspace 2'
   alt-shift-3 = 'move-node-to-workspace 3'
   alt-shift-4 = 'move-node-to-workspace 4'
-  alt-shift-5 = 'move-node-to-workspace 5'
-  alt-shift-6 = 'move-node-to-workspace 6'
-  alt-shift-7 = 'move-node-to-workspace 7'
-  alt-shift-8 = 'move-node-to-workspace 8'
-  alt-shift-9 = 'move-node-to-workspace 9'
 
   alt-shift-w = 'move-node-to-workspace W'
   alt-shift-d = 'move-node-to-workspace D'
   alt-shift-m = 'move-node-to-workspace M'
+  alt-shift-c = 'move-node-to-workspace C'
   alt-shift-t = 'move-node-to-workspace T'
 
   alt-tab = 'workspace-back-and-forth'
   alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
-  alt-shift-semicolon = 'mode service'
   alt-shift-f = 'layout floating tiling'
+  alt-ctrl-shift-f = 'fullscreen'
+  alt-shift-semicolon = 'mode service'
 
 # Application-specific workspace assignments (Omarchy-style organization)
 [[on-window-detected]]
@@ -102,10 +95,6 @@ after-startup-command = [
   if.app-id = 'com.mitchellh.ghostty'
   run = 'move-node-to-workspace T'
 
-[[on-window-detected]]
-  if.app-id = 'com.tinyspeck.slackmacgap'
-  run = 'move-node-to-workspace M'
-
 # Float certain dialogs and utility windows by default
 [[on-window-detected]]
   if.app-id = 'com.apple.finder'
@@ -119,12 +108,22 @@ after-startup-command = [
   if.app-id = 'com.apple.MobileSMS'
   run = 'layout floating'
 
+[[on-window-detected]]
+  if.app-id = 'com.tinyspeck.slackmacgap'
+  run = 'move-node-to-workspace C'
+
 # Monitor assignments for multi-monitor setups (if applicable)
 [workspace-to-monitor-force-assignment]
-  W = 'main'        # Web workspace on main monitor
-  D = 'secondary'   # Development on secondary monitor if available
-  M = 'main'        # Media on main monitor
-  T = 'main'        # System on main monitor
+  W = 'main'
+  D = 'main'
+  T = 'main'        
+  M = 'secondary'
+  C = 'secondary'
+
+  1 = 'main'
+  2 = 'main'
+  3 = 'secondary'
+  4 = 'secondary'
 
 # Service mode for system operations and advanced window management
 [mode.service.binding]
@@ -133,7 +132,7 @@ after-startup-command = [
   f = ['layout floating tiling', 'mode main']                 # Toggle floating
   backspace = ['close-all-windows-but-current', 'mode main']  # Close all but current
 
-# Advanced window joining (like Hyprland's window grouping)
+  # Advanced window joining (like Hyprland's window grouping)
   alt-shift-h = ['join-with left', 'mode main']
   alt-shift-j = ['join-with down', 'mode main'] 
   alt-shift-k = ['join-with up', 'mode main']
