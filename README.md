@@ -72,12 +72,13 @@ asdf install dart 2.19.6
 asdf install golang 1.23.1
 asdf install nodejs 20.3.0
 asdf install java corretto-21.0.2.13.1
+asdf install java corretto-25.0.0.36.2
 
 asdf set python 3.12.0
 asdf set dart 2.19.6
 asdf set golang 1.23.1
 asdf set nodejs 20.3.0
-asdf set java corretto-21.0.2.13.1
+asdf set java corretto-25.0.0.36.2
 ```
 
 
