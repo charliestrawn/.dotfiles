@@ -502,7 +502,7 @@ require("lazy").setup({
 			-- Add frugal-ls as a custom server configuration
 			local lspconfig = require("lspconfig")
 			local configs = require("lspconfig.configs")
-			
+
 			if not configs.frugal_ls then
 				configs.frugal_ls = {
 					default_config = {
@@ -667,6 +667,8 @@ require("lazy").setup({
 			---@diagnostic disable-next-line: missing-fields
 			require("tokyonight").setup({
 				-- transparent = true,
+				style = "moon",
+				light_style = "day",
 				styles = {
 					comments = { italic = false }, -- Disable italics in comments
 				},
@@ -675,7 +677,7 @@ require("lazy").setup({
 			-- Load the colorscheme here.
 			-- Like many other themes, this one has different styles, and you could load
 			-- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-			vim.cmd.colorscheme("tokyonight-night")
+			vim.cmd.colorscheme("tokyonight")
 		end,
 	},
 	-- Highlight todo, notes, etc in comments
