@@ -2,42 +2,76 @@
 
 # docker grep
 function dg {
-    local container
     if [ $# -lt 1 ]; then
-        echo "require at least one arg"
-        exit 1
+        echo "require at least one arg" >&2
+        return 1
     fi
-    container=$(docker container ls | grep "$1" | cut -d ' ' -f1)
-    if [ -z "$container" ]; then
-        echo "$1 is not running"
+
+    local containers
+    containers=($(docker ps --format "{{.ID}}" --filter "name=$1"))
+
+    if [ ${#containers[@]} -eq 0 ]; then
+        echo "$1 is not running" >&2
+        return 1
     fi
-    echo "$container"
+
+    if [ ${#containers[@]} -eq 1 ]; then
+        echo "${containers[1]}"
+        return 0
+    fi
+
+    # Multiple containers found - show selection menu
+    echo "Multiple containers found matching '$1':" >&2
+    local names=($(docker ps --format "{{.Names}}" --filter "name=$1"))
+
+    for i in {1..${#containers[@]}}; do
+        echo "$i) ${names[i]} (${containers[i]})" >&2
+    done
+
+    echo -n "Select container (1-${#containers[@]}): " >&2
+    read choice
+
+    if [[ "$choice" =~ ^[0-9]+$ ]] && [ "$choice" -ge 1 ] && [ "$choice" -le ${#containers[@]} ]; then
+        echo "${containers[choice]}"
+        return 0
+    else
+        echo "Invalid selection" >&2
+        return 1
+    fi
 }
 
+# helper function for docker commands that require a container id
+function _docker_with_container {
+    local cmd="$1"
+    local pattern="$2"
+    shift 2  # Remove first two args
+
+    local container_id
+    container_id=$(dg "$pattern")
+ 
+    if [ $? -eq 0 ]; then
+        docker "$cmd" "$container_id" "$@"
+    else
+        echo "Failed to get container ID" >&2
+        return 1
+    fi
+}
 function dstop {
     echo "stopping $1"
-    docker stop "$(dg "$1")"
-}
-
-function dstopall {
-    for c in $(dg | tail +2);
-    do
-        echo $c
-        #dstop(c)
-    done
+    _docker_with_container stop "$@"
 }
 
 function dr {
     echo "restarting $1"
-    dg "$1" | xargs docker restart
+    _docker_with_container restart "$@"
 }
 
 function dl {
-    docker logs "$(dg "$1")"
+    _docker_with_container logs "$@"
 }
 
 function dlf {
-    docker logs "$(dg "$1")" -f
+    dl "$@" -f
 }
 
 function dprune {
@@ -53,7 +87,7 @@ function fport {
 }
 
 function pr {
-  gh pr create -w
+    gh pr create -w
 }
 
 # opens browser to the PR made from this branch
@@ -63,6 +97,11 @@ function prv {
 
 function puml2png {
     java -DPLANTUML_LIMIT_SIZE=8400 -jar ~/.local/bin/plantuml.jar $1
+}
+
+function wksetup {
+    [ ! -f ~/.wk/profile ] && wk login
+    source ~/.wk/profile 2>/dev/null
 }
 
 
