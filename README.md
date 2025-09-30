@@ -2,7 +2,7 @@
 
 my config, managed with GNU stow.
 
-- Alacritty (terminal)
+- Ghostty
 - bat (cat with syntax highlighting)
 - homebrew 
 - neovim
@@ -11,7 +11,7 @@ my config, managed with GNU stow.
 
 ### Install 
 
-Install Homebrew
+Install [Homebrew](https://brew.sh)
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -71,22 +71,14 @@ asdf install python 3.12.0
 asdf install dart 2.19.6
 asdf install golang 1.23.1
 asdf install nodejs 20.3.0
-asdf install java corretto-21.0.2.13.1
-asdf install java corretto-25.0.0.36.2
+asdf install java latest:corretto-25
 
-asdf set python 3.12.0
-asdf set dart 2.19.6
-asdf set golang 1.23.1
-asdf set nodejs 20.3.0
-asdf set java corretto-25.0.0.36.2
+asdf set -u python 3.12.0
+asdf set -u dart 2.19.6
+asdf set -u golang 1.23.1
+asdf set -u nodejs 20.3.0
+asdf set -u java latest:corretto-25
 ```
-
-
-#### Bat syntax
-
-The `bat` theme requires you to run `bat cache --build` 
-
-see: https://github.com/catppuccin/bat?tab=readme-ov-file#usage
 
  #### Inspired by:
 
