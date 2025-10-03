@@ -104,4 +104,6 @@ function wksetup {
     source ~/.wk/profile 2>/dev/null
 }
 
-
+function setupwk {
+    wksetup
+}

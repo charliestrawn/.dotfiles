@@ -9,9 +9,11 @@ alias cat=bat
 alias lg="lazygit"
 alias k="kubectl"
 
+alias ofd="open ."
+
 alias ls='eza --group-directories-first --icons --git'
 TREE_IGNORE="cache|log|logs|node_modules|vendor|__pycache__"
-alias l=' ls -ah'
+alias l=' ls -lah'
 alias ll=' ls -l'
 alias lt=' ls --tree -D -L 2 -I ${TREE_IGNORE}'
 alias ltt=' ls --tree -D -L 3 -I ${TREE_IGNORE}'
@@ -23,11 +25,16 @@ alias grassc="./gradlew clean assemble --parallel"
 alias grab="./gradlew build --parallel"
 alias grabc="./gradlew clean build --parallel"
 
-alias gpom="g pull origin master"
-alias gpum="g pull upstream master"
+# Git stuff
+alias g="git"
+alias gst="g status"
+alias gco="g checkout"
+alias gp="g push"
+alias gfo="g fetch origin"
 alias grom="g rebase origin/master"
 alias grpo="g remote prune origin"
 alias yolo="gp --force-with-lease"
+alias gca="g commit -a"
 alias hmb="gca --amend --no-edit && yolo"
 alias next-flyway="find ./server/src/main/resources/db/migration -type f | wc -l "
 
@@ -39,10 +46,9 @@ alias sup='./skynet/skynet-env-setup.sh'
 alias sdown='./skynet/skynet-env-teardown.sh'
 alias stest='./skynet/skynet-test.sh'
 alias spull='./skynet/skynet-compose.sh pull'
-alias ssv='./skynet/skynet-compose.sh up -d support-viewer && open -a "Google Chrome" http://localhost:8180/?mockAuth=true'
+alias ssv='./skynet/skynet-compose.sh up -d support-viewer'
 alias sall='gcb && sdown && sup && stest && sdown'
 alias ssql='./skynet/skynet-compose.sh exec mysql mysql -uroot -psecret --binary-as-hex'
-alias scup='./skynet/skynet-compose.sh up -d '
 
 
 #################################################
