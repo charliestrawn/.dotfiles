@@ -12,12 +12,7 @@ fi
 
 export WK_LOCAL_GIT_REPOS_DIR="$HOME/bench"
 
-export ZSH="$HOME/.oh-my-zsh"
-plugins=(encode64 git golang gradle jira macos)
-source $ZSH/oh-my-zsh.sh
-
-source "$brew_prefix/opt/spaceship/spaceship.zsh"
-
+eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
 
 # fzf git stuff
