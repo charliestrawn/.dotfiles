@@ -3,7 +3,6 @@ aws-iam-authenticator
 bat
 eza
 fd
-felixkratz/formulae/borders
 freerdp
 fzf
 gh
@@ -21,17 +20,17 @@ ncdu
 neovim
 openblas
 pkgconf
+pnpm
 pv
 reattach-to-user-namespace
 ripgrep
 shellcheck
 spaceship
+starship
 stow
 tmux
 vault
 tree
-virtualenv
-virtualenvwrapper
 wget
 yazi
 zoxide

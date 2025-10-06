@@ -28,6 +28,7 @@ alias grabc="./gradlew clean build --parallel"
 # Git stuff
 alias g="git"
 alias gst="g status"
+alias gstp="g stash pop"
 alias gco="g checkout"
 alias gp="g push"
 alias gfo="g fetch origin"
