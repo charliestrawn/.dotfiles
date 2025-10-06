@@ -10,6 +10,12 @@ if [ -f "$brew_prefix/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
     source "$brew_prefix/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 fi
 
+if [ -f "$brew_prefix/share/zsh-history-substring-search/zsh-history-substring-search.zsh" ]; then
+    source "$brew_prefix/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
+    bindkey '^[[A' history-substring-search-up
+    bindkey '^[[B' history-substring-search-down
+fi
+
 export WK_LOCAL_GIT_REPOS_DIR="$HOME/bench"
 
 eval "$(starship init zsh)"
