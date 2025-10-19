@@ -8,9 +8,13 @@ alias grep=rg --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}
 alias cat=bat
 alias lg="lazygit"
 alias k="kubectl"
+alias d="docker"
+alias dps="d ps"
 
 alias ofd="open ."
 
+alias ..="cd .."
+alias ...="cd ../.."
 alias ls='eza --group-directories-first --icons --git'
 TREE_IGNORE="cache|log|logs|node_modules|vendor|__pycache__"
 alias l=' ls -lah'
