@@ -25,7 +25,6 @@ pv
 reattach-to-user-namespace
 ripgrep
 shellcheck
-spaceship
 starship
 stow
 tmux
