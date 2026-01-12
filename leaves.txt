@@ -10,6 +10,7 @@ git
 gnupg
 graphviz
 grype
+hashicorp/tap/vault
 helm
 jq
 k9s
@@ -28,7 +29,6 @@ shellcheck
 starship
 stow
 tmux
-vault
 tree
 wget
 yazi
