@@ -1,5 +1,5 @@
 python 3.12.7
-golang 1.23.1
+golang 1.25.5
 dart 2.19.6
-nodejs 20.3.0
+nodejs lts
 java corretto-25.0.0.36.2
