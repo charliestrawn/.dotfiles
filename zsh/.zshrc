@@ -1,3 +1,18 @@
+# History configuration
+HISTFILE=~/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+
+# Share history across all sessions and append immediately
+setopt share_history
+setopt inc_append_history
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_ignore_space
+setopt hist_verify
+setopt hist_save_no_dups
+
 # eval brew cli
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -31,15 +46,20 @@ source ~/.functions
 export ASDF_DATA_DIR="$HOME/.asdf"
 export PATH="$ASDF_DATA_DIR/shims:$PATH"
 
+. ${ASDF_DATA_DIR:-$HOME/.asdf}/plugins/golang/set-env.zsh
+
 # requires neovim which is aliased to v -> vim in ~/.aliases
 export EDITOR=nvim
+
 export GOPATH="$HOME/work"
+export GOPRIVATE=github.com/Workiva
 
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.pub-cache/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
 
 export WK_LOCAL_GIT_REPOS_DIR="$HOME/bench"
+
 # workaround some issues building huge dart repos
 ulimit -Sn 8192
 

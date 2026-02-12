@@ -5,7 +5,7 @@
 alias v='NVIM_APPNAME=lazyvim nvim'
 alias vk='NVIM_APPNAME=nvim nvim'
 
-alias grep="rg --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}"
+alias grep=rg --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}
 alias cat="bat"
 alias lg="lazygit"
 alias k="kubectl"
