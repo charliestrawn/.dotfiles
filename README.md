@@ -44,7 +44,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 ### Symlink dotfiles with stow
 
 ```bash
-stow */
+stow --ignore='.git' */
 ```
 
 ### Install TPM for tmux
