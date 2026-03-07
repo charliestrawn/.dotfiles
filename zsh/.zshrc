@@ -32,6 +32,7 @@ if [ -f "$brew_prefix/share/zsh-history-substring-search/zsh-history-substring-s
 fi
 
 export XDG_CONFIG_HOME="$HOME/.config"
+export LG_CONFIG_FILE="$XDG_CONFIG_HOME/lazygit/config.yml"
 
 eval "$(starship init zsh)"
 eval "$(fzf --zsh)"

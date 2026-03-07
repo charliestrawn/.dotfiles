@@ -2,12 +2,19 @@
 
 my config, managed with GNU stow.
 
-- Ghostty
-- bat (cat with syntax highlighting)
-- homebrew 
-- neovim
-- shell
-- tmux
+| Config | Stows to |
+|--------|----------|
+| aerospace | `~/.config/aerospace/` |
+| asdf | `~/.tool-versions` |
+| bat | `~/.config/bat/` |
+| borders | `~/.config/borders/` |
+| ghostty | `~/.config/ghostty/` |
+| lazygit | `~/.config/lazygit/` |
+| nvim | `~/.config/nvim/` |
+| nvim-lazy | `~/.config/lazyvim/` |
+| starship | `~/.config/starship.toml` |
+| tmux | `~/.config/tmux/` |
+| zsh | `~/` |
 
 ### Install 
 
@@ -27,23 +34,16 @@ brew leaves > leaves.txt
 xargs brew install < leaves.txt
 ```
 
-### Install oh-my-zsh
-
-```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
-
-
 ### Symlink dotfiles with stow
 
 ```bash
-stow */
+stow --ignore='.git' */
 ```
 
 ### Install TPM for tmux
 
 ```bash
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
 ```
 
 #### Manually Install Catppuccin
