@@ -2,12 +2,19 @@
 
 my config, managed with GNU stow.
 
-- Ghostty
-- bat (cat with syntax highlighting)
-- homebrew 
-- neovim
-- shell
-- tmux
+| Config | Stows to |
+|--------|----------|
+| aerospace | `~/.config/aerospace/` |
+| asdf | `~/.tool-versions` |
+| bat | `~/.config/bat/` |
+| borders | `~/.config/borders/` |
+| ghostty | `~/.config/ghostty/` |
+| lazygit | `~/.config/lazygit/` |
+| nvim | `~/.config/nvim/` |
+| nvim-lazy | `~/.config/lazyvim/` |
+| starship | `~/.config/starship.toml` |
+| tmux | `~/.config/tmux/` |
+| zsh | `~/` |
 
 ### Install 
 
