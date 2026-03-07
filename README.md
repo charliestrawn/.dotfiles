@@ -34,13 +34,6 @@ brew leaves > leaves.txt
 xargs brew install < leaves.txt
 ```
 
-### Install oh-my-zsh
-
-```bash
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
-
-
 ### Symlink dotfiles with stow
 
 ```bash
