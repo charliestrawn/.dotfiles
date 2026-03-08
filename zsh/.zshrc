@@ -47,7 +47,7 @@ source ~/.functions
 export ASDF_DATA_DIR="$HOME/.asdf"
 export PATH="$ASDF_DATA_DIR/shims:$PATH"
 
-. ${ASDF_DATA_DIR:-$HOME/.asdf}/plugins/golang/set-env.zsh
+. "$ASDF_DATA_DIR/plugins/golang/set-env.zsh"
 
 # requires neovim which is aliased to v -> vim in ~/.aliases
 export EDITOR=nvim

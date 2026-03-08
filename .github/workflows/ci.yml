@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  zsh-syntax:
+    name: zsh syntax check
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check zsh syntax
+        run: zsh -n zsh/.zshrc
+
+  shellcheck:
+    name: shellcheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install shellcheck
+        run: sudo apt-get install -y shellcheck
+      - name: Run shellcheck on zshrc
+        # SC1090/SC1091: can't follow dynamic source paths
+        # SC2034: zsh reads HISTSIZE/SAVEHIST automatically (false positive)
+        # SC2039/SC3040: zsh-specific builtins (setopt, bindkey) not valid in bash/sh
+        # SC2296: zsh parameter expansion syntax
+        run: shellcheck --shell=bash --exclude=SC1090,SC1091,SC2034,SC2039,SC2296,SC3040 zsh/.zshrc
