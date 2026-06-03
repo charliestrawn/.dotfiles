@@ -1,2 +1,4 @@
 tmux/.config/tmux/plugins
 state.yml
+*secrets*
+

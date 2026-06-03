@@ -39,6 +39,7 @@ eval "$(fzf --zsh)"
 
 source ~/.aliases
 source ~/.functions
+source ~/.secrets
 
 # setup asdf for versions >= 0.16.0 
 export ASDF_DATA_DIR="$HOME/.asdf"
