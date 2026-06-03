@@ -1,5 +1,7 @@
 # shellcheck shell=bash
 
+ofd() { open -R "${1:-.}"; }
+
 # docker grep
 function dg {
     if [ $# -lt 1 ]; then

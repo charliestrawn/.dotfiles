@@ -12,7 +12,6 @@ alias k="kubectl"
 alias d="docker"
 alias dps="d ps"
 
-alias ofd="open ."
 
 alias ..="cd .."
 alias ...="cd ../.."
