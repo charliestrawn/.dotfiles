@@ -57,6 +57,7 @@ export GOPRIVATE=github.com/Workiva
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.pub-cache/bin:$PATH"
 export PATH="$GOPATH/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 export WK_LOCAL_GIT_REPOS_DIR="$HOME/bench"
 
@@ -65,3 +66,7 @@ ulimit -Sn 8192
 
 eval "$(zoxide init zsh)"
 
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
+
+# opencode
+export PATH=/Users/charlie.strawn/.opencode/bin:$PATH
