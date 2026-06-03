@@ -37,9 +37,6 @@ export LG_CONFIG_FILE="$XDG_CONFIG_HOME/lazygit/config.yml"
 eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
 
-# fzf git stuff
-# https://github.com/junegunn/fzf-git.sh
-source ~/fzf-git.sh
 source ~/.aliases
 source ~/.functions
 
