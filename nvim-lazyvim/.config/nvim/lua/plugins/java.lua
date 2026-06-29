@@ -1,4 +1,4 @@
-local home = os.getenv("HOMEj")
+local home = os.getenv("HOME")
 
 return {
   {
