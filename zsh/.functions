@@ -2,6 +2,24 @@
 
 ofd() { open -R "${1:-.}"; }
 
+docker_disk_check() {
+  local pct=$(docker run --rm alpine df / 2>/dev/null | awk 'NR==2 {print $5}' | tr -d '%')
+  if [ -n "$pct" ] && [ "$pct" -ge 80 ]; then
+    echo "⚠️  Docker VM disk: ${pct}% full"
+    read "reply?Clean up old image tags (keep latest 2 per image)? [y/N] "
+    if [[ "$reply" =~ ^[Yy]$ ]]; then
+      docker images --format "{{.Repository}}" | sort -u | while read repo; do
+        docker images "$repo" --format "{{.Tag}}" | tail -n +3 | while read tag; do
+          echo "  removing $repo:$tag"
+          docker rmi "$repo:$tag" 2>/dev/null
+        done
+      done
+      docker image prune -f
+      echo "✓ Done"
+    fi
+  fi
+}
+
 # docker grep
 function dg {
     if [ $# -lt 1 ]; then
