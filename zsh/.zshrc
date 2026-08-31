@@ -1,5 +1,6 @@
 # set vi mode
-bindkey -v
+# bindkey -v
+# bindkey -M vicmd 'v' visual-mode
 
 # restore some of the emacs shortcuts
 bindkey '^R' history-incremental-search-backward
@@ -43,12 +44,14 @@ export LG_CONFIG_FILE="$XDG_CONFIG_HOME/lazygit/config.yml"
 eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
 
-source ~/.aliases
-source ~/.functions
-source ~/.secrets
+source "$HOME/.aliases"
+source "$HOME/.functions"
+source "$HOME/.secrets"
 
 # workaround some issues building huge dart repos
 ulimit -Sn 8192
 
 eval "$(zoxide init zsh)"
+eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
+
 

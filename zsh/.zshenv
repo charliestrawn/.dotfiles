@@ -18,6 +18,7 @@ export PATH="$ASDF_DATA_DIR/shims:$PATH"
 
 source "$ASDF_DATA_DIR/plugins/golang/set-env.zsh"
 source "$ASDF_DATA_DIR/plugins/java/set-java-home.zsh"
+export JAVA_HOME="$(asdf where java 2>/dev/null)"
 
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.pub-cache/bin:$PATH"
@@ -26,5 +27,13 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 
 # opencode
-export PATH=/Users/charlie.strawn/.opencode/bin:$PATH
+export PATH="$HOME/.opencode/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
 
