@@ -2,3 +2,11 @@ git:
   overrideGpg: true
   # pagers:
   #   - pager: delta --dark --paging=never --line-numbers
+  diffRenderers:
+    # - command: hunk pager --theme solarized-light
+    - command: delta --paging=never
+    - type: rawGit
+      name: default
+gui:
+  nerdFontsVersion: "3"
+  animateExplosion: true
