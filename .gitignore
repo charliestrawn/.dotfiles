@@ -1,4 +1,5 @@
 tmux/.config/tmux/plugins
 state.yml
 *secrets*
+lazygit/.config/lazygit/github_pull_requests.json
 
