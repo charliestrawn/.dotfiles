@@ -1,0 +1,7 @@
+[theme]
+auto_switch = true
+light_name = "solarized-light"
+dark_name = "tokyo-night"
+
+[keys]
+prefix = "ctrl+space"
