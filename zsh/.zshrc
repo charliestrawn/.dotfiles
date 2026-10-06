@@ -1,3 +1,9 @@
+# should stay near the top 
+fpath=(~/.zfunc $fpath)
+
+# Make sure compinit is initialized
+autoload -U compinit && compinit
+
 # set vi mode
 # bindkey -v
 # bindkey -M vicmd 'v' visual-mode

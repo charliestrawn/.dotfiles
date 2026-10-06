@@ -127,3 +127,7 @@ function wksetup {
 function setupwk {
     wksetup
 }
+
+function kshell {
+	kubectl exec -it "$1" -n workiva -- /bin/bash
+}
