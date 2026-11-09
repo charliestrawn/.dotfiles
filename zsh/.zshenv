@@ -4,8 +4,6 @@ export XDG_CONFIG_HOME="$HOME/.config"
 
 export EDITOR=nvim
 
-export GOPATH="$HOME/work"
-
 # work specific
 export GOPRIVATE=github.com/Workiva
 export WK_LOCAL_GIT_REPOS_DIR="$HOME/bench"
@@ -22,7 +20,6 @@ export JAVA_HOME="$(asdf where java 2>/dev/null)"
 
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.pub-cache/bin:$PATH"
-export PATH="$GOPATH/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 
