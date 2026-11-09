@@ -11,3 +11,9 @@ git:
 gui:
   nerdFontsVersion: "3"
   animateExplosion: true
+customCommands:
+  - key: "o"
+    context: "worktrees"
+    description: "Open worktree in a new Herdr split pane"
+    command: 'herdr pane split --current --direction right --cwd "{{.SelectedWorktree.Path}}" --focus'
+    loadingText: "Opening pane..."
