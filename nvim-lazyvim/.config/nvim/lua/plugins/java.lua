@@ -1,5 +1,3 @@
-local home = os.getenv("HOME")
-
 return {
   {
     "mfussenegger/nvim-jdtls",
@@ -7,11 +5,7 @@ return {
       settings = {
         java = {
           format = {
-            enabled = true,
-            settings = {
-              -- Optional: point to your google-java-format or checkstyle XML
-              url = home .. "rrpl-eclipse-style.xml",
-            },
+            enabled = false,
           },
         },
       },
