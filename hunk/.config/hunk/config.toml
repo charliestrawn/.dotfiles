@@ -1,5 +1,5 @@
 theme = "github-dark-high-contrast"
-mode = "stack"
+mode = "unified"
 vcs = "git"                         # git, jj, sl
 watch = false
 exclude_untracked = false
@@ -8,7 +8,7 @@ tab_width = 4                       # tab stops, 1-16
 wrap_lines = false
 menu_bar = false
 sidebar = false                     # "auto", true, false
-agent_notes = false
+agent_notes = true
 prompt_save_view_preferences = true
 transparent_background = true
 hunk_headers = true
