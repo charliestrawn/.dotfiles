@@ -1,0 +1,2 @@
+# installed automatically by asdf-nodejs after each `asdf install nodejs <version>`
+tree-sitter-cli
