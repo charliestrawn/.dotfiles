@@ -14,7 +14,12 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 export ASDF_DATA_DIR="$HOME/.asdf"
 export PATH="$ASDF_DATA_DIR/shims:$PATH"
 
-source "$ASDF_DATA_DIR/plugins/golang/set-env.zsh"
+# shared across go versions so `go install`ed tools survive asdf upgrades
+export GOPATH="$HOME/go"
+export GOBIN="$GOPATH/bin"
+[[ -d "$GOBIN" ]] || mkdir -p "$GOBIN"
+export PATH="$GOBIN:$PATH"
+
 source "$ASDF_DATA_DIR/plugins/java/set-java-home.zsh"
 export JAVA_HOME="$(asdf where java 2>/dev/null)"
 
