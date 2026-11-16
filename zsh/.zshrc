@@ -1,5 +1,5 @@
 # should stay near the top 
-fpath=(~/.zfunc $fpath)
+fpath=(~/.zfunc "${fpath[@]}")
 
 # Make sure compinit is initialized
 autoload -U compinit && compinit
@@ -58,6 +58,5 @@ source "$HOME/.secrets"
 ulimit -Sn 8192
 
 eval "$(zoxide init zsh)"
-eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 
 
