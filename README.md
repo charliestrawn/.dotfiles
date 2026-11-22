@@ -5,13 +5,15 @@ my config, managed with GNU stow.
 | Config | Stows to |
 |--------|----------|
 | aerospace | `~/.config/aerospace/` |
-| asdf | `~/.tool-versions` |
+| asdf | `~/.tool-versions`, `~/.default-npm-packages` |
 | bat | `~/.config/bat/` |
 | borders | `~/.config/borders/` |
 | ghostty | `~/.config/ghostty/` |
+| herdr | `~/.config/herdr/` |
+| hunk | `~/.config/hunk/` |
+| k9s | `~/.config/k9s/` |
 | lazygit | `~/.config/lazygit/` |
-| nvim | `~/.config/nvim/` |
-| nvim-lazy | `~/.config/lazyvim/` |
+| nvim-lazyvim | `~/.config/nvim/` |
 | starship | `~/.config/starship.toml` |
 | tmux | `~/.config/tmux/` |
 | zsh | `~/` |
@@ -58,27 +60,22 @@ then start a new tmux session and run prefix + I (prefix will be bound to ctrl +
 
 ### Programming Language Setup
 
-Using asdf which is installed via brew leaves.txt
+Using asdf (installed via leaves.txt). Versions are pinned in `asdf/.tool-versions`,
+which stows to `~/.tool-versions`.
 
 ```bash
-asdf plugin add python 
-asdf plugin add dart 
+asdf plugin add python
+asdf plugin add dart
 asdf plugin add golang
 asdf plugin add nodejs
-asdf plugin add java 
+asdf plugin add java
 
-asdf install python 3.12.0
-asdf install dart 2.19.6
-asdf install golang 1.23.1
-asdf install nodejs 20.3.0
-asdf install java latest:corretto-25
-
-asdf set -u python 3.12.0
-asdf set -u dart 2.19.6
-asdf set -u golang 1.23.1
-asdf set -u nodejs 20.3.0
-asdf set -u java latest:corretto-25
+# installs every version pinned in ~/.tool-versions
+asdf install
 ```
+
+New node versions automatically get the global packages listed in `~/.default-npm-packages`.
+Go tools from `go install` land in `~/go/bin`, shared across Go versions.
 
  #### Inspired by:
 
