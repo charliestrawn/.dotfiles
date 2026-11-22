@@ -22,7 +22,6 @@ export GOBIN="$GOPATH/bin"
 # .zprofile) moves these back to the front instead of duplicating them
 typeset -U path
 path=(
-  "$HOME/.opencode/bin"
   "$HOME/.local/bin"
   "$HOME/.pub-cache/bin"
   /usr/local/bin
