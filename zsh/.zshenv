@@ -13,8 +13,6 @@ export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
 [ -d "$GOBIN" ] || mkdir -p "$GOBIN"
 
-export PNPM_HOME="$HOME/Library/pnpm"
-
 [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
 
 # eval brew cli, needs to come before asdf
@@ -24,7 +22,6 @@ export PNPM_HOME="$HOME/Library/pnpm"
 # .zprofile) moves these back to the front instead of duplicating them
 typeset -U path
 path=(
-  "$PNPM_HOME/bin"
   "$HOME/.opencode/bin"
   "$HOME/.local/bin"
   "$HOME/.pub-cache/bin"
