@@ -1,5 +1,3 @@
-source "$HOME/.cargo/env"
-
 export XDG_CONFIG_HOME="$HOME/.config"
 
 export EDITOR=nvim
@@ -8,34 +6,36 @@ export EDITOR=nvim
 export GOPRIVATE=github.com/Workiva
 export WK_LOCAL_GIT_REPOS_DIR="$HOME/bench"
 
-# eval brew cli, needs to come before asdf
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
 export ASDF_DATA_DIR="$HOME/.asdf"
-export PATH="$ASDF_DATA_DIR/shims:$PATH"
 
 # shared across go versions so `go install`ed tools survive asdf upgrades
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
 [ -d "$GOBIN" ] || mkdir -p "$GOBIN"
-export PATH="$GOBIN:$PATH"
 
-source "$ASDF_DATA_DIR/plugins/java/set-java-home.zsh"
-JAVA_HOME="$(asdf where java 2>/dev/null)"
-export JAVA_HOME
-
-export PATH="/usr/local/bin:$PATH"
-export PATH="$HOME/.pub-cache/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-
-# opencode
-export PATH="$HOME/.opencode/bin:$PATH"
-
-# pnpm
 export PNPM_HOME="$HOME/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME/bin:"*) ;;
-  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
-esac
-# pnpm end
 
+[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
+
+# eval brew cli, needs to come before asdf
+[ -x /opt/homebrew/bin/brew ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# -U keeps the first copy of each entry, so re-sourcing this file (see
+# .zprofile) moves these back to the front instead of duplicating them
+typeset -U path
+path=(
+  "$PNPM_HOME/bin"
+  "$HOME/.opencode/bin"
+  "$HOME/.local/bin"
+  "$HOME/.pub-cache/bin"
+  /usr/local/bin
+  "$GOBIN"
+  "$ASDF_DATA_DIR/shims"
+  "${path[@]}"
+)
+
+if [ -f "$ASDF_DATA_DIR/plugins/java/set-java-home.zsh" ]; then
+  source "$ASDF_DATA_DIR/plugins/java/set-java-home.zsh"
+  JAVA_HOME="$(asdf where java 2>/dev/null)"
+  export JAVA_HOME
+fi

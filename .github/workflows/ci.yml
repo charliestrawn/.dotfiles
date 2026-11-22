@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - name: Check zsh syntax
-        run: for f in zsh/.zshrc zsh/.zshenv zsh/.aliases zsh/.functions; do zsh -n "$f"; done
+        run: for f in zsh/.zshrc zsh/.zshenv zsh/.zprofile zsh/.aliases zsh/.functions; do zsh -n "$f"; done
 
   shellcheck:
     name: shellcheck
@@ -29,5 +29,5 @@ jobs:
         # SC2296: zsh parameter expansion syntax
         run: |
           shellcheck --shell=bash --exclude=SC1090,SC1091,SC2034,SC2039,SC2296,SC3040 \
-            zsh/.zshrc zsh/.zshenv zsh/.aliases zsh/.functions
+            zsh/.zshrc zsh/.zshenv zsh/.zprofile zsh/.aliases zsh/.functions
           shellcheck check-stow.sh .githooks/pre-commit
