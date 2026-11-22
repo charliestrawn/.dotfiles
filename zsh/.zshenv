@@ -21,7 +21,8 @@ export GOBIN="$GOPATH/bin"
 export PATH="$GOBIN:$PATH"
 
 source "$ASDF_DATA_DIR/plugins/java/set-java-home.zsh"
-export JAVA_HOME="$(asdf where java 2>/dev/null)"
+JAVA_HOME="$(asdf where java 2>/dev/null)"
+export JAVA_HOME
 
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.pub-cache/bin:$PATH"

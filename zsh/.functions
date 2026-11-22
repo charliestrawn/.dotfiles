@@ -3,13 +3,15 @@
 ofd() { open -R "${1:-.}"; }
 
 docker_disk_check() {
-  local pct=$(docker run --rm alpine df / 2>/dev/null | awk 'NR==2 {print $5}' | tr -d '%')
+  local pct
+  pct=$(docker run --rm alpine df / 2>/dev/null | awk 'NR==2 {print $5}' | tr -d '%')
   if [ -n "$pct" ] && [ "$pct" -ge 80 ]; then
     echo "⚠️  Docker VM disk: ${pct}% full"
-    read "reply?Clean up old image tags (keep latest 2 per image)? [y/N] "
+    read -r "reply?Clean up old image tags (keep latest 2 per image)? [y/N] "
+    # shellcheck disable=SC2154 # assigned by zsh `read "reply?prompt"` above
     if [[ "$reply" =~ ^[Yy]$ ]]; then
-      docker images --format "{{.Repository}}" | sort -u | while read repo; do
-        docker images "$repo" --format "{{.Tag}}" | tail -n +3 | while read tag; do
+      docker images --format "{{.Repository}}" | sort -u | while read -r repo; do
+        docker images "$repo" --format "{{.Tag}}" | tail -n +3 | while read -r tag; do
           echo "  removing $repo:$tag"
           docker rmi "$repo:$tag" 2>/dev/null
         done
@@ -28,6 +30,7 @@ function dg {
     fi
 
     local containers
+    # shellcheck disable=SC2207 # zsh splits command output into an array
     containers=($(docker ps --format "{{.ID}}" --filter "name=$1"))
 
     if [ ${#containers[@]} -eq 0 ]; then
@@ -42,14 +45,16 @@ function dg {
 
     # Multiple containers found - show selection menu
     echo "Multiple containers found matching '$1':" >&2
+    # shellcheck disable=SC2207
     local names=($(docker ps --format "{{.Names}}" --filter "name=$1"))
 
+    # shellcheck disable=SC2051 # zsh allows variables in brace ranges
     for i in {1..${#containers[@]}}; do
         echo "$i) ${names[i]} (${containers[i]})" >&2
     done
 
     echo -n "Select container (1-${#containers[@]}): " >&2
-    read choice
+    read -r choice
 
     if [[ "$choice" =~ ^[0-9]+$ ]] && [ "$choice" -ge 1 ] && [ "$choice" -le ${#containers[@]} ]; then
         echo "${containers[choice]}"
@@ -67,9 +72,7 @@ function _docker_with_container {
     shift 2  # Remove first two args
 
     local container_id
-    container_id=$(dg "$pattern")
- 
-    if [ $? -eq 0 ]; then
+    if container_id=$(dg "$pattern"); then
         docker "$cmd" "$container_id" "$@"
     else
         echo "Failed to get container ID" >&2
@@ -116,7 +119,7 @@ function prv {
 }
 
 function puml2png {
-    java -DPLANTUML_LIMIT_SIZE=8400 -jar ~/.local/bin/plantuml.jar $1
+    java -DPLANTUML_LIMIT_SIZE=8400 -jar ~/.local/bin/plantuml.jar "$1"
 }
 
 function wksetup {
