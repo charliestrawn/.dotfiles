@@ -27,7 +27,6 @@ export JAVA_HOME
 export PATH="/usr/local/bin:$PATH"
 export PATH="$HOME/.pub-cache/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
 
 # opencode
 export PATH="$HOME/.opencode/bin:$PATH"
