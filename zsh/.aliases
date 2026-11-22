@@ -4,7 +4,8 @@
 
 alias v='nvim'
 
-alias grep=rg --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}
+# rg already skips VCS dirs and gitignored files
+alias grep='rg'
 alias cat="bat"
 alias lg="lazygit"
 alias k="kubectl"

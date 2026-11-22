@@ -6,7 +6,7 @@
 # Usage: ./check-stow.sh [package ...]   (defaults to all packages)
 
 set -uo pipefail
-cd "$(dirname "$0")"
+cd "$(dirname "$0")" || exit 1
 DOTFILES_DIR="$(pwd)"
 
 packages=("$@")

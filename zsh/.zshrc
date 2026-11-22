@@ -52,7 +52,7 @@ eval "$(fzf --zsh)"
 
 source "$HOME/.aliases"
 source "$HOME/.functions"
-source "$HOME/.secrets"
+[ -f "$HOME/.secrets" ] && source "$HOME/.secrets"
 
 # workaround some issues building huge dart repos
 ulimit -Sn 8192

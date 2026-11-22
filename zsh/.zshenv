@@ -17,7 +17,7 @@ export PATH="$ASDF_DATA_DIR/shims:$PATH"
 # shared across go versions so `go install`ed tools survive asdf upgrades
 export GOPATH="$HOME/go"
 export GOBIN="$GOPATH/bin"
-[[ -d "$GOBIN" ]] || mkdir -p "$GOBIN"
+[ -d "$GOBIN" ] || mkdir -p "$GOBIN"
 export PATH="$GOBIN:$PATH"
 
 source "$ASDF_DATA_DIR/plugins/java/set-java-home.zsh"
