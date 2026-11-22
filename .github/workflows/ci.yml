@@ -30,4 +30,4 @@ jobs:
         run: |
           shellcheck --shell=bash --exclude=SC1090,SC1091,SC2034,SC2039,SC2296,SC3040 \
             zsh/.zshrc zsh/.zshenv zsh/.aliases zsh/.functions
-          shellcheck check-stow.sh
+          shellcheck check-stow.sh .githooks/pre-commit

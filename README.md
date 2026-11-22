@@ -40,6 +40,9 @@ xargs brew install < leaves.txt
 
 ```bash
 stow --ignore='.git' */
+
+# optional: block commits when a package isn't linked into $HOME
+git config core.hooksPath .githooks
 ```
 
 ### Install TPM for tmux

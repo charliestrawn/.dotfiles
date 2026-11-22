@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Fails the commit if any stow package isn't correctly linked into $HOME.
+# Enable with: git config core.hooksPath .githooks
+repo="$(git rev-parse --show-toplevel)" || exit 1
+if ! out="$("$repo/check-stow.sh")"; then
+  echo "$out" | grep -v '^  OK$'
+  echo "stow drift detected; run \`stow -t ~ <package>\` (or commit with --no-verify)" >&2
+  exit 1
+fi
