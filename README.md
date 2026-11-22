@@ -4,10 +4,8 @@ my config, managed with GNU stow.
 
 | Config | Stows to |
 |--------|----------|
-| aerospace | `~/.config/aerospace/` |
 | asdf | `~/.tool-versions`, `~/.default-npm-packages` |
 | bat | `~/.config/bat/` |
-| borders | `~/.config/borders/` |
 | ghostty | `~/.config/ghostty/` |
 | herdr | `~/.config/herdr/` |
 | hunk | `~/.config/hunk/` |
